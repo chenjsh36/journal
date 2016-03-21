@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS_counter</title>
+	<style>
+		.counter {
+			counter-reset: p-counter 0;
+		    background-color: #18293C;
+		    color: #fff;
+		}
+		.counter p {
+			counter-increment: p-counter 1;
+			padding-left: 30px;
+			position: relative;
+		}
+
+		.counter p:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 36px;
+			content: counter(p-counter);
+			vertical-align: top;
+			color: #fff;
+			background-position: 0 0px;
+			font-size: 12px;
+			display: inline-block;
+			width: 18px;
+			text-align: center;
+			background-image: url('./img/tag.png');
+			background-repeat: no-repeat;
+		}
+
+	</style>
+</head>
+<body>
+	<h3>
+		示例图如下：
+	</h3>
+	<img src="./img/design.png" alt="">
+	<h3>
+		实现如下：
+	</h3>
+	<div class="counter">
+		<h5>步骤:</h5>
+		<p>
+			请将代码添加到网站全部页面的&#x3C;head&#x3E;
+		</p>
+		<p>
+			建议在header.htm类似的页头模板页面中安装，以达到一处安装，全站皆有的效果
+		</p>
+		<p>
+			如需在JS文件中调用统计分析代码，请直接去掉以下代码首尾的&#x3C;script type="text/javascript"&#x3E;与&#x3C;/script&#x3E;后，
+			<br> 放入JS文件中即可。如果代码安装正确，一般一个小时后，可以查看网站分析数据；
+		</p>
+	</div>
+</body>
+</html>
