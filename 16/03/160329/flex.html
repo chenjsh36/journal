@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flex</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		.parent {
+			display: flex;
+			height: 300px;
+			background-color: black;
+		}
+		.child {
+			width: 100px;
+			height: 100px;
+			margin: auto;
+			background-color: white;
+		}
+
+		.case2-parent {
+
+			padding:20px;
+			display: flex;
+			width: 100%;
+			height: 500px;
+			border: 1px solid red;
+			align-items: center;
+			justify-content: space-around;
+		}
+		.case2-parent div {
+			visibility: collapse;
+		}
+		.case2-parent .case2-child1 {
+			height: 120px;
+			width:150px;
+			border: 1px solid red;
+		}
+		.case2-parent .case2-child2 {
+			height: 100px;
+			width: 150px;
+			border: 1px solid red;
+		}
+		.case2-parent .case2-child3 {
+			height: 40px;
+			width:150px;
+			border: 1px solid red;
+		}
+		.case2-parent .case2-child4 {
+			height: 200px;
+			width: 150px;
+			border: 1px solid blue;
+		}
+
+		@media (max-width: 640px) {
+			.case2-parent {
+				flex-flow: row wrap;
+				align-content: space-around;
+				align-items: flex-start;
+				justify-content: space-between;
+			}
+			.case2-parent .case2-child4 {
+				order: 1;
+			}
+			.case2-parent .case2-child1 {
+				order: 2;
+			}
+			.case2-parent .case2-child2 {
+				order: 3;
+			}
+			.case2-parent .case2-child3 {
+				order: 4;
+			}
+		}
+
+		.case3-parent {
+			display: flex;
+			flex-flow: row-reverse wrap;
+			justify-content: space-around;
+		}
+		.case3-item {
+			background: tomato;
+			padding: 5px;
+			height: 150px;
+			line-height: 150px;
+			margin-top: 10px;
+			width: 200px;
+			color: white;
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+		}
+		.case4-parent {
+			display: flex;
+			flex-flow: row-reverse wrap;
+			justify-content: space-around;
+		}
+		.case5-parent {
+			display: flex;
+			flex-flow: column-reverse;
+			justify-content: space-around;
+		}
+	</style>
+</head>
+<body>
+	<h3>case 1:简单的垂直居中</h3>
+	<div class="parent">
+		<div class="child">
+			
+		</div>
+	</div>
+
+	<h3>case 2： 多个子元素的垂直居中</h3>
+	<div class="case2-parent">
+		<div class="case2-child1">
+			
+		</div>
+		<div class="case2-child2">
+			
+		</div>
+		<div class="case2-child3">
+			
+		</div>
+		<div class="case2-child4">
+			
+		</div>
+	</div>
+	<h3>case 2： 从左到右排列</h3>
+	<div class="case3-parent">
+		<div class="case3-item">1</div>
+		<div class="case3-item">2</div>
+		<div class="case3-item">3</div>
+		<div class="case3-item">4</div>
+		<div class="case3-item">5</div>
+	</div>
+	<h3>case 2： 从右到左排列</h3>
+	<div class="case4-parent">
+		<div class="case3-item">1</div>
+		<div class="case3-item">2</div>
+		<div class="case3-item">3</div>
+		<div class="case3-item">4</div>
+		<div class="case3-item">5</div>
+	</div>
+	<h3>case 2： 从下到上排列</h3>
+	<div class="case5-parent">
+		<div class="case3-item">1</div>
+		<div class="case3-item">2</div>
+		<div class="case3-item">3</div>
+		<div class="case3-item">4</div>
+		<div class="case3-item">5</div>
+	</div>
+</body>
+</html>

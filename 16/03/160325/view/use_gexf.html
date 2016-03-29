@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Use gexf to show graph</title>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="./js/echarts.min.js"></script>
+	<style>
+		#gexf-chart {
+			height: 400px;
+			width: 800px;
+		}
+	</style>
+</head>
+<body>
+	<div id="gexf-chart">
+		
+	</div>
+</body>
+<script>
+var myChart = echarts.init(document.getElementById('gexf-chart'));
+myChart.showLoading();
+$.get('./Test.gexf', function (xml) {
+    myChart.hideLoading();
+
+    var graph = echarts.dataTool.gexf.parse(xml);
+    var categories = [];
+    console.log('categories:', categories);
+    for (var i = 0; i < 9; i++) {
+        categories[i] = {
+            name: '类目' + i
+        };
+    }
+    graph.nodes.forEach(function (node) {
+        node.itemStyle = null;
+        node.value = node.symbolSize;
+        node.label = {
+            normal: {
+                show: node.symbolSize > 1
+            }
+        };
+        node.label.normal.show = node.symbolSize > 1;
+        node.category = node.attributes.modularity_class;
+    });
+    option = {
+        title: {
+            text: 'Les Miserables',
+            subtext: 'Circular layout',
+            top: 'bottom',
+            left: 'right'
+        },
+        tooltip: {},
+        legend: [{
+            // selectedMode: 'single',
+            data: categories.map(function (a) {
+                return a.name;
+            })
+        }],
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series : [
+            {
+                name: 'Les Miserables',
+                type: 'graph',
+                layout: 'circular',
+                data: graph.nodes,
+                links: graph.links,
+                categories: categories,
+                roam: true,
+                label: {
+                    normal: {
+                        position: 'right',
+                        formatter: '{b}'
+                    }
+                },
+                lineStyle: {
+                    normal: {
+                        curveness: 0.3
+                    }
+                }
+            }
+        ]
+    };
+
+    myChart.setOption(option);
+}, 'xml');
+</script>
+</html>

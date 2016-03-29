@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.3" version="1.3" xmlns:viz="http://www.gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.3 http://www.gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2016-03-23">
+    <creator>Gephi 0.9</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <nodes>
+      <node id="0" label="1">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="245.17535" y="295.42334"></viz:position>
+      </node>
+      <node id="1" label="2">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="-9.516218" y="172.74872"></viz:position>
+      </node>
+      <node id="2" label="3">
+        <viz:size value="10.0"></viz:size>
+        <viz:position x="507.14398" y="-67.375885"></viz:position>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="0" target="0"></edge>
+      <edge id="1" source="0" target="1"></edge>
+    </edges>
+  </graph>
+</gexf>
